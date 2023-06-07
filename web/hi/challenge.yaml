@@ -1,0 +1,18 @@
+name: hi
+author: kpdfgo
+description: |-
+  hi
+
+  {{ link }}
+containers:
+  main:
+    build: server
+    ports:
+      - 80
+
+flag: tjctf{pretty_canvas_577f7045}
+
+expose:
+  main:
+    - target: 80
+      http: hi

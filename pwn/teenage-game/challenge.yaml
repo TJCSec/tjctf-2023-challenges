@@ -1,0 +1,42 @@
+name: teenage-game
+author: kfb
+description: |-
+  What happens when the [baby game](https://play.picoctf.org/practice/challenge/346) grows up?
+
+  `{{ nc }}`
+
+provide:
+  - bin/game
+  - bin/Dockerfile
+  - connect.sh
+
+flag:
+  file: bin/flag.txt
+
+containers:
+  main:
+    build: bin
+    replicas: 2
+    ports:
+      - 5000
+    k8s:
+      container:
+        securityContext:
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - all
+            add:
+              - chown
+              - setuid
+              - setgid
+              - sys_admin
+              - mknod
+      metadata:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+
+expose:
+  main:
+    - target: 5000
+      tcp: 31119

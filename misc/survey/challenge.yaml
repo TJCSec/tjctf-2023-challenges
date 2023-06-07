@@ -1,0 +1,7 @@
+name: survey
+author: TJCTF Organizers
+description: |-
+  Thanks for playing in TJCTF 2023! Please fill out our [survey](https://forms.gle/j8eaXwPzw8j4zg7A6) so we can make TJCTF better next year!
+flag: tjctf{thanks_for_playing}
+value: 1
+tiebreakEligible: false

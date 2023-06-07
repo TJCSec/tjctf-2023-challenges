@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my joke database</title>
+</head>
+
+<body>
+
+    <input type="text" id="search" placeholder="search for a joke">
+
+    <div id="jokes">
+        <h3>please enter a search term between 2 and 6 characters</h3>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const jokesDiv = document.getElementById('jokes');
+
+        function search(query) {
+            fetch('/search?name=' + encodeURIComponent(query)).then(res => res.json()).then(data => {
+                console.log(data)
+                jokesDiv.innerHTML = '';
+                data.forEach(joke => {
+                    const jokeDiv = document.createElement('div');
+                    jokeDiv.innerHTML = `
+                        <p>${joke.joke} (<strong>${joke.id}</strong>)</p>
+                    `;
+                    jokesDiv.appendChild(jokeDiv);
+                });
+            });
+        }
+
+        searchInput.addEventListener('input', e => {
+            const query = e.target.value;
+            if (query.length >= 2 && query.length <= 6) {
+                search(query);
+            } else {
+                jokesDiv.innerHTML = '<h3>please enter a search term between 2 and 6 characters</h3>';
+            }
+        });
+    </script>
+</body>
+
+</html>

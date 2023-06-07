@@ -1,0 +1,6 @@
+#!/bin/sh
+main () {
+  cat $(find / -name 'flag-*.txt')
+}
+
+main "$@"

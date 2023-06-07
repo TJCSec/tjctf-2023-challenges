@@ -1,0 +1,11 @@
+name: merky-hell
+author: stosp
+description: |-
+  I stored my flag in my knapsack and now I can't get it out....
+
+provide:
+  - bin/merky-hell.py
+  - bin/output.txt
+
+flag:
+  file: bin/flag.txt

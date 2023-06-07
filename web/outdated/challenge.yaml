@@ -1,0 +1,22 @@
+name: outdated
+author: sToro
+description: |-
+  I found this old website that runs your python code, but the security hasn't been updated in years
+
+  I'm sure there's a flag floating around, can you find it?
+
+  [Instancer](https://instancer.tjctf.org/challenge/outdated)
+flag:
+  file: server/flag.txt
+
+provide:
+  - kind: zip
+    spec:
+      as: server.zip
+      exclude:
+        - server/flag.txt
+      files:
+        - server
+      additional:
+        - path: server/flag.txt
+          str: tjctf{fake_flag}

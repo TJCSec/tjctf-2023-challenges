@@ -1,0 +1,8 @@
+name: ily-df
+author: stosp
+description: |-
+  I love Dwarf Fortress so much I made my own version!!!
+provide:
+  - bin/game
+
+flag: tjctf{i-L0v3-you-Dwarf-Fortre$s}

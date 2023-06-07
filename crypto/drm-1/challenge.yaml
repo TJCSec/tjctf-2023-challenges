@@ -1,0 +1,33 @@
+name: drm-1
+author: stosp
+description: |-
+  daniel and kpdfgo made a shared account on this drm site... but their music expired!!!!!! can you help them get their music back?
+
+  {{ link }}
+flag:
+  file: server/flag.txt
+
+visible: true
+
+containers:
+  main:
+    build: ./server
+    replicas: 2
+    ports:
+      - 5000
+
+expose:
+  main:
+    - target: 5000
+      http: drm
+
+provide:
+  - kind: zip
+    spec:
+      as: client.zip
+      files:
+        - client/drm.pyc
+        - client/drm_exe
+        - client/meta.dat
+        - client/hash.dat
+  - server/app.py

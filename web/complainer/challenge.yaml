@@ -1,0 +1,31 @@
+name: complainer
+author: kpdfgo
+description: |-
+  I have A LOT to complain about, so I made a website to scream into the void!
+
+  {{ link }}
+
+  [Admin Bot](https://admin-bot.tjctf.org/complainer)
+
+flag:
+  file: flag.txt
+
+containers:
+  main:
+    build: ./server
+    replicas: 1
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: complainer
+
+provide:
+- kind: zip
+  spec:
+    as: server.zip
+    files:
+      - server
+- admin-bot.js

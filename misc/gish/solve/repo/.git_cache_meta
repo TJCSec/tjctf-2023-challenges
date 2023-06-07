@@ -1,0 +1,15 @@
+chown 0 README.md
+chgrp 0 README.md
+chmod 0644 README.md
+chown 0 code.sh
+chgrp 0 code.sh
+chmod 0644 code.sh
+chown 0 execs/git
+chgrp 0 execs/git
+chmod 0755 execs/git
+chown 0 execs/git-mergetools
+chgrp 0 execs/git-mergetools
+chmod 0755 execs/git-mergetools
+chown 0 gen.sh
+chgrp 0 gen.sh
+chmod 0644 gen.sh

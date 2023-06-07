@@ -1,0 +1,13 @@
+name: aluminum-isopropoxide
+author: stosp
+description: |-
+  my friend encrypted my flag, but at least i made backups??? its like 34 chars??? simple words??? can you get it back??
+
+provide:
+  - bin/flag.txt.enc
+  - bin/flag1.txt.enc
+  - bin/flag2.txt.enc
+  - bin/main.cpp
+
+flag:
+  file: ./bin/flag.txt

@@ -1,0 +1,9 @@
+name: scramble
+author: daniel
+description: |-
+  oops, i think my siblings messed with the line order a little. The first three lines are given
+
+provide:
+  - bin/chal.py
+
+flag: tjctf{unshuffling_scripts_xdfj}

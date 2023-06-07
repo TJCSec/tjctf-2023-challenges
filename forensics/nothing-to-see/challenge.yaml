@@ -1,0 +1,10 @@
+name: nothing-to-see
+author: sToro
+description: |-
+  nothing to see here, just move along
+
+flag:
+  file: flag.txt
+
+provide:
+  - nothing.png

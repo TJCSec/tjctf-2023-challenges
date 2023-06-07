@@ -1,0 +1,41 @@
+name: iheartrsa
+
+author: samarth
+description: |-
+  i sure do love rsa. the question is, do you?
+  
+  `{{ nc }}`
+flag:
+  file: ./flag.txt
+provide:
+  - ./iheartrsa.py
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports:
+      - 5000
+    environment:
+      JAIL_MEM: 20M
+    k8s:
+      container:
+        securityContext:
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - all
+            add:
+              - chown
+              - setuid
+              - setgid
+              - sys_admin
+              - mknod
+      metadata:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+
+expose:
+  main:
+    - target: 5000
+      tcp: 31628

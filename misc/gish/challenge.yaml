@@ -1,0 +1,20 @@
+name: gish
+author: sToro
+description: |-
+  git + sh = gish
+
+  [Instancer](https://instancer.tjctf.org/challenge/gish)
+provide:
+  - kind: zip
+    spec:
+      as: bin.zip
+      exclude:
+        - bin/flag.txt
+      files:
+        - bin
+      additional:
+        - path: bin/flag.txt
+          str: tjctf{fake_flag}
+
+flag:
+  file: bin/flag.txt

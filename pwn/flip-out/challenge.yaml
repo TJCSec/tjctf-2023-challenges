@@ -1,0 +1,39 @@
+name: flip-out
+author: stosp
+description: |-
+  My friend made this app with a flag in it...
+
+  `{{ nc }}`
+provide:
+  - bin/chall
+
+flag:
+  file: bin/flag.txt
+
+containers:
+  main:
+    build: bin
+    replicas: 2
+    ports:
+      - 5000
+    k8s:
+      container:
+        securityContext:
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - all
+            add:
+              - chown
+              - setuid
+              - setgid
+              - sys_admin
+              - mknod
+      metadata:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+
+expose:
+  main:
+    - target: 5000
+      tcp: 31601

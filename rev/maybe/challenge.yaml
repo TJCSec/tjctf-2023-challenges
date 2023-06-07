@@ -1,0 +1,9 @@
+name: maybe
+author: sbhargav
+description: |-
+  is this an easy rev challenge?? maybe .... just maybe ...
+
+provide:
+  - bin/chall
+
+flag: tjctf{cam3_saw_c0nqu3r3d98A24B5}

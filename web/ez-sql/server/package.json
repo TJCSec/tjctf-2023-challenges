@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "csv": "^6.2.8",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

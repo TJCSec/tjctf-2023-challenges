@@ -1,0 +1,11 @@
+name: ez-sql
+author: kpdfgo
+description: |-
+  just your average sql challenge, nothing else to see here (trust)
+
+  [Instancer](https://instancer.tjctf.org/challenge/ez-sql)
+flag:
+  file: server/flag.txt
+
+provide:
+- server/app.js

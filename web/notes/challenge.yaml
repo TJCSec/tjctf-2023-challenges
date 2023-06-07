@@ -1,0 +1,20 @@
+name: notes
+author: kpdfgo
+description: |-
+  obligatory notes site?
+
+  [Instancer](https://instancer.tjctf.org/challenge/notes)
+flag:
+  file: server/app/flag.txt
+
+provide:
+  - kind: zip
+    spec:
+      as: server.zip
+      exclude:
+        - server/app/flag.txt
+      files:
+        - server
+      additional:
+        - path: server/app/flag.txt
+          str: tjctf{fake_flag}

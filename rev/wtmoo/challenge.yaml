@@ -1,0 +1,9 @@
+name: wtmoo
+author: kpdfgo
+description: |-
+  My cow keeps eating all my flags...
+
+provide:
+  - bin/chall
+
+flag: tjctf{wtMoo0O0o0o0a7e8f1}

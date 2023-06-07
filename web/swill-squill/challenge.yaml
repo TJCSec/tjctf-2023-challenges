@@ -1,0 +1,20 @@
+name: swill-squill
+author: stosp
+description: |-
+  ezsql
+
+  [Instancer](https://instancer.tjctf.org/challenge/swill-squill)
+flag:
+  file: server/flag.txt
+
+provide:
+  - kind: zip
+    spec:
+      as: server.zip
+      exclude:
+        - server/flag.txt
+      files:
+        - server
+      additional:
+        - path: server/flag.txt
+          str: flag{fake_flag}

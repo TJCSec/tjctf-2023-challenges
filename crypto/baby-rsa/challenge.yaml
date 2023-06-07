@@ -1,0 +1,8 @@
+name: baby-rsa
+author: kpdfgo
+description: |-
+  small numbers for small messages
+provide:
+  - bin/output.txt
+flag:
+  file: bin/flag.txt

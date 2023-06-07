@@ -1,0 +1,24 @@
+name: drm-2
+author: stosp
+description: |
+  ok, you have the deets... now pirate my music please... i swear, there's some part of the song that they're not playing, but this drm software isn't letting me see it :(
+
+  flag is all lowercase. client.zip is the same as in drm-1.
+
+  you do NOT need to solve drm-1 to solve this challenge.
+flag: tjctf{idon'tliketosing1549089769}
+
+visible: true
+
+provide:
+  - kind: zip
+    spec:
+      as: client.zip
+      files:
+        - client/drm.pyc
+        - client/drm_exe
+        - client/meta.dat
+        - client/hash.dat
+  - deets/drm.key
+  - deets/drm.nonce
+  - deets/enc_song.dat

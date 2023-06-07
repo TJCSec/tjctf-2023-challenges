@@ -1,0 +1,30 @@
+name: painter
+author: kpdfgo
+description: |-
+  More sm-paint, with more features???
+  
+  {{ link }}
+
+  [Admin Bot](https://admin-bot.tjctf.org/painter)
+flag:
+  file: flag.txt
+
+containers:
+  main:
+    build: ./server
+    replicas: 1
+    ports:
+      - 5000
+
+expose:
+  main:
+    - target: 5000
+      http: painter
+
+provide:
+- kind: zip
+  spec:
+    as: server.zip
+    files:
+      - server
+- admin-bot.js

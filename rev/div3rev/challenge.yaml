@@ -1,0 +1,10 @@
+name: div3rev
+author: scienceqiu
+description: |-
+  divide and conquer?
+provide:
+  - bin/chal.py
+
+flag:
+  file: flag.txt
+

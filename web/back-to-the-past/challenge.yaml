@@ -1,0 +1,31 @@
+name: back-to-the-past
+author: sToro
+description: |-
+  "Back to the Future" never made sense as a title
+  {{ link }}
+flag:
+  file: server/flag.txt
+
+provide:
+  - kind: zip
+    spec:
+      as: server.zip
+      exclude:
+        - server/flag.txt
+        - server/private.key
+        - server/public_key.pem
+      files:
+        - server
+      additional:
+        - path: server/flag.txt
+          str: tjctf{fake_flag}
+  
+containers:
+  main:
+    build: server
+    ports:
+      - 5000
+expose:
+  main:
+    - target: 5000
+      http: back-to-the-future

@@ -1,0 +1,39 @@
+name: keysmith
+author: stosp
+description: |-
+  I lost my key... can you find it? 
+
+  `{{ nc }}`
+provide:
+  - bin/server.py
+  - bin/msg.txt
+
+flag: tjctf{lock-smith_289378972359}
+
+containers:
+  main:
+    build: bin
+    replicas: 2
+    ports:
+      - 5000
+    k8s:
+      container:
+        securityContext:
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - all
+            add:
+              - chown
+              - setuid
+              - setgid
+              - sys_admin
+              - mknod
+      metadata:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+
+expose:
+  main:
+    - target: 5000
+      tcp: 31103

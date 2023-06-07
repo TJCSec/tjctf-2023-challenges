@@ -1,0 +1,8 @@
+name: discord
+author: TJCTF Organizers
+description: |-
+  Welcome to TJCTF! Check out [our Discord server](https://discord.com/invite/w5xapGP) for announcements and updates.
+
+flag: tjctf{b4ck_4t_1t_4ga1n}
+
+value: 1

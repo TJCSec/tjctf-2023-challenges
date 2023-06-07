@@ -1,0 +1,31 @@
+name: yolo
+author: kpdfgo
+description: |-
+  I found this website that makes me really emotional because it's so motivational...
+
+  {{ link }}
+
+  [Admin Bot](https://admin-bot.tjctf.org/yolo)
+
+flag:
+  file: flag.txt
+
+containers:
+  main:
+    build: ./server
+    replicas: 1
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: yolo
+
+provide:
+- kind: zip
+  spec:
+    as: server.zip
+    files:
+      - server
+- admin-bot.js

@@ -1,0 +1,11 @@
+name: e
+author: stosp
+description: |-
+  smol e
+
+provide:
+  - bin/output.txt
+  - bin/gen.sage
+
+flag:
+  file: bin/flag.txt
